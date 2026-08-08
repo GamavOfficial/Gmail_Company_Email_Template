@@ -3,172 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enterprise Gmail Template Studio & Multi-Template Engine</title>
+    <title>Advanced Enterprise Email Signature & Template Studio</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-slate-900 text-slate-100 antialiased font-sans">
+<body class="bg-slate-100 text-slate-800 antialiased font-sans">
 
-    <!-- Top Master Navbar -->
-    <header class="bg-slate-950 border-b border-slate-800 h-18 flex items-center justify-between px-8 shadow-xl sticky top-0 z-50">
-        <div class="flex items-center space-x-4">
-            <div class="bg-gradient-to-tr from-blue-600 to-indigo-500 text-white p-2.5 rounded-2xl shadow-lg">
-                <i class="fa-solid fa-layer-group text-xl"></i>
+    <!-- Top Master Header -->
+    <header class="bg-slate-900 border-b border-slate-800 h-18 flex items-center justify-between px-8 shadow-xl sticky top-0 z-50">
+        <div class="flex items-center space-x-3">
+            <div class="bg-blue-600 text-white p-2.5 rounded-xl shadow-lg">
+                <i class="fa-solid fa-signature text-xl"></i>
             </div>
             <div>
-                <h1 class="text-xl font-black tracking-wider text-white">ENTERPRISE <span class="text-blue-500">MAIL SUITE</span></h1>
-                <p class="text-xs text-slate-400">Professional Company Email Template Studio</p>
+                <h1 class="text-xl font-black tracking-wider text-white">SIGNATURE <span class="text-blue-500">STUDIO PRO</span></h1>
+                <p class="text-xs text-slate-400">A to Z Advanced Email Template & Generator Engine</p>
             </div>
         </div>
-        <div class="flex items-center space-x-4">
-            <button onclick="switchView('gallery')" id="btnGallery" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-5 py-2.5 rounded-xl font-semibold transition border border-slate-700 flex items-center space-x-2">
-                <i class="fa-solid fa-grid-2"></i>
-                <span>Template Gallery</span>
-            </button>
-            <button onclick="exportFullCode()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-bold transition shadow-lg shadow-blue-600/30 flex items-center space-x-2">
-                <i class="fa-solid fa-file-arrow-down"></i>
-                <span>Export Final Code</span>
+        <div>
+            <button onclick="exportFinalSignature()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-bold transition shadow-lg shadow-blue-600/30 flex items-center space-x-2">
+                <i class="fa-solid fa-download"></i>
+                <span>Download / Export HTML</span>
             </button>
         </div>
     </header>
 
-    <!-- Main Dynamic Application Container -->
-    <main class="min-h-[calc(100vh-4.5rem)]">
-
-        <!-- VIEW 1: Ready-made Template Gallery Selection -->
-        <section id="galleryView" class="p-10 max-w-7xl mx-auto space-y-8">
-            <div class="text-center space-y-3">
-                <h2 class="text-3xl font-extrabold tracking-tight text-white">Select a Professional Company Template</h2>
-                <p class="text-sm text-slate-400 max-w-2xl mx-auto">Choose from our battle-tested, high-conversion enterprise email templates. Click any template to load it directly into the advanced live customizer.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-6">
-                <!-- Template Card 1 -->
-                <div onclick="loadTemplate('corporate')" class="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 rounded-3xl p-6 cursor-pointer transition-all duration-300 transform hover:-translate-y-2 hover:border-blue-500 shadow-xl group">
-                    <div class="bg-blue-600/10 border border-blue-500/20 rounded-2xl h-48 flex items-center justify-center mb-6 overflow-hidden">
-                        <i class="fa-solid fa-building-columns text-5xl text-blue-500 group-hover:scale-110 transition duration-300"></i>
-                    </div>
-                    <span class="text-xs font-bold text-blue-400 uppercase tracking-widest bg-blue-500/10 px-3 py-1 rounded-full">Corporate</span>
-                    <h3 class="text-xl font-bold text-white mt-3">Global Tech Enterprise</h3>
-                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">Ideal for tech companies, SaaS startups, and corporate announcements.</p>
-                    <div class="mt-6 flex items-center text-sm font-semibold text-blue-400 group-hover:translate-x-1 transition">
-                        <span>Customize Template</span> <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </div>
-                </div>
-
-                <!-- Template Card 2 -->
-                <div onclick="loadTemplate('ecommerce')" class="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 rounded-3xl p-6 cursor-pointer transition-all duration-300 transform hover:-translate-y-2 hover:border-emerald-500 shadow-xl group">
-                    <div class="bg-emerald-600/10 border border-emerald-500/20 rounded-2xl h-48 flex items-center justify-center mb-6 overflow-hidden">
-                        <i class="fa-solid fa-cart-shopping text-5xl text-emerald-500 group-hover:scale-110 transition duration-300"></i>
-                    </div>
-                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full">E-Commerce</span>
-                    <h3 class="text-xl font-bold text-white mt-3">Retail & Promo Campaign</h3>
-                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">Designed for sales promotions, product launches, and seasonal discounts.</p>
-                    <div class="mt-6 flex items-center text-sm font-semibold text-emerald-400 group-hover:translate-x-1 transition">
-                        <span>Customize Template</span> <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </div>
-                </div>
-
-                <!-- Template Card 3 -->
-                <div onclick="loadTemplate('welcome')" class="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 rounded-3xl p-6 cursor-pointer transition-all duration-300 transform hover:-translate-y-2 hover:border-purple-500 shadow-xl group">
-                    <div class="bg-purple-600/10 border border-purple-500/20 rounded-2xl h-48 flex items-center justify-center mb-6 overflow-hidden">
-                        <i class="fa-solid fa-handshake text-5xl text-purple-500 group-hover:scale-110 transition duration-300"></i>
-                    </div>
-                    <span class="text-xs font-bold text-purple-400 uppercase tracking-widest bg-purple-500/10 px-3 py-1 rounded-full">Onboarding</span>
-                    <h3 class="text-xl font-bold text-white mt-3">Client Welcome Suite</h3>
-                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">Perfect for greeting new users, membership approvals, and client setups.</p>
-                    <div class="mt-6 flex items-center text-sm font-semibold text-purple-400 group-hover:translate-x-1 transition">
-                        <span>Customize Template</span> <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- VIEW 2: Advanced Live Customizer Studio (Hidden Initially) -->
-        <section id="editorView" class="hidden flex h-[calc(100vh-4.5rem)] overflow-hidden">
-            <!-- Left Customizer Sidebar -->
-            <aside class="w-96 bg-slate-950 border-r border-slate-800 p-6 overflow-y-auto space-y-6">
-                <div class="flex items-center justify-between pb-4 border-b border-slate-800">
-                    <h3 class="text-sm font-bold text-white uppercase tracking-wider flex items-center">
-                        <i class="fa-solid fa-sliders text-blue-500 mr-2"></i> Control Panel
-                    </h3>
-                    <button onclick="switchView('gallery')" class="text-xs text-slate-400 hover:text-white bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700">
-                        <i class="fa-solid fa-arrow-left mr-1"></i> Back to Gallery
+    <!-- Main Workspace -->
+    <div class="flex h-[calc(100vh-4.5rem)] overflow-hidden">
+        
+        <!-- Left Sidebar Customizer Controls (A to Z Advanced Tool) -->
+        <aside class="w-[420px] bg-white border-r border-slate-200 p-6 overflow-y-auto space-y-6 shadow-lg">
+            
+            <!-- 1. Template Selection Gallery -->
+            <div class="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">
+                    <i class="fa-solid fa-paintbrush text-blue-600 mr-1"></i> 1. Choose Inbuilt Template
+                </label>
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="setTemplateStyle('classic')" class="p-3 bg-white border-2 border-blue-600 rounded-xl text-xs font-bold text-slate-700 shadow-sm hover:bg-blue-50 transition text-left">
+                        <i class="fa-solid fa-id-card text-blue-600 mb-1 block text-base"></i> Classic Professional
+                    </button>
+                    <button onclick="setTemplateStyle('modern')" class="p-3 bg-white border-2 border-slate-200 rounded-xl text-xs font-bold text-slate-700 shadow-sm hover:bg-slate-50 transition text-left">
+                        <i class="fa-solid fa-address-card text-emerald-600 mb-1 block text-base"></i> Modern Banner Suite
                     </button>
                 </div>
+            </div>
 
-                <!-- Media Uploader (PNG, JPEG, GIF) -->
-                <div class="space-y-2 bg-slate-900 p-4 rounded-2xl border border-slate-800">
-                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider">
-                        <i class="fa-solid fa-image text-blue-500 mr-1"></i> Media Banner / Logo Upload
-                    </label>
-                    <input type="file" id="imageUpload" accept="image/png, image/jpeg, image/gif" class="w-full text-xs text-slate-400 file:mr-3 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-blue-600 file:text-white hover:file:bg-blue-700 cursor-pointer" onchange="handleImageUpload(event)">
-                    <p class="text-[10px] text-slate-500">Supports PNG, JPEG, GIF up to max output quality.</p>
+            <!-- 2. Personal & Company Data -->
+            <div class="space-y-4">
+                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">2. Personal & Company Details</h3>
+                
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">First Name</label>
+                        <input type="text" id="inputFirstName" value="John" class="w-full border border-slate-300 rounded-xl p-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" oninput="updateSignature()">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Last Name</label>
+                        <input type="text" id="inputLastName" value="Doe" class="w-full border border-slate-300 rounded-xl p-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" oninput="updateSignature()">
+                    </div>
                 </div>
 
-                <!-- Text Customization Fields -->
-                <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Job Title & Department</label>
+                    <input type="text" id="inputJobTitle" value="Sales & Marketing Director" class="w-full border border-slate-300 rounded-xl p-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" oninput="updateSignature()">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Company Name</label>
+                    <input type="text" id="inputCompanyName" value="My Company" class="w-full border border-slate-300 rounded-xl p-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" oninput="updateSignature()">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">Company / Main Header Title</label>
-                        <input type="text" id="inputTitle" class="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-blue-500 focus:outline-none" oninput="updatePreview()">
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Phone Number</label>
+                        <input type="text" id="inputPhone" value="(800) 555-0199" class="w-full border border-slate-300 rounded-xl p-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" oninput="updateSignature()">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Email Address</label>
+                        <input type="text" id="inputEmail" value="john.doe@my-company.com" class="w-full border border-slate-300 rounded-xl p-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" oninput="updateSignature()">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Website URL & Link Converter</label>
+                    <input type="text" id="inputWebsite" value="www.my-company.com" class="w-full border border-slate-300 rounded-xl p-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" oninput="updateSignature()">
+                </div>
+            </div>
+
+            <!-- 3. Multi Graphics, Logo & Banners (PNG, JPEG, GIF) -->
+            <div class="space-y-4 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider">3. Unlimited Graphics & Banners (PNG/JPEG/GIF)</h3>
+                
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Profile Photo Upload (PNG/JPEG)</label>
+                    <input type="file" id="profileImageUpload" accept="image/png, image/jpeg" class="w-full text-xs text-slate-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:bg-blue-600 file:text-white cursor-pointer" onchange="handleProfileImage(event)">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Banner / GIF Image Upload</label>
+                    <input type="file" id="bannerImageUpload" accept="image/png, image/jpeg, image/gif" class="w-full text-xs text-slate-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:bg-emerald-600 file:text-white cursor-pointer" onchange="handleBannerImage(event)">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Banner Clickable Link URL</label>
+                    <input type="text" id="inputBannerLink" value="https://codetwo.com" class="w-full border border-slate-300 rounded-xl p-2 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" oninput="updateSignature()">
+                </div>
+            </div>
+
+            <!-- 4. Advanced Styling & Font Controls -->
+            <div class="space-y-4">
+                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">4. Advanced Style & Text Controls</h3>
+                
+                <div class="grid grid-cols-3 gap-2">
+                    <div>
+                        <label class="block text-[11px] font-semibold text-slate-600 mb-1">Primary Color</label>
+                        <input type="color" id="inputColor1" value="#003e4d" class="w-full h-10 border border-slate-300 rounded-xl p-1 cursor-pointer bg-white" oninput="updateSignature()">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-semibold text-slate-600 mb-1">Accent Color</label>
+                        <input type="color" id="inputColor2" value="#2e9aa4" class="w-full h-10 border border-slate-300 rounded-xl p-1 cursor-pointer bg-white" oninput="updateSignature()">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-semibold text-slate-600 mb-1">Text Size</label>
+                        <select id="inputFontSize" class="w-full h-10 border border-slate-300 rounded-xl px-2 text-xs bg-white font-semibold" onchange="updateSignature()">
+                            <option value="text-xs">Compact</option>
+                            <option value="text-sm" selected>Standard</option>
+                            <option value="text-base">Large</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Disclaimer Text (Unlimited Edit)</label>
+                    <textarea id="inputDisclaimer" rows="3" class="w-full border border-slate-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-blue-500 focus:outline-none" oninput="updateSignature()">The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party.</textarea>
+                </div>
+            </div>
+
+            <!-- 5. Social Media Links Manager -->
+            <div class="space-y-3">
+                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">5. Social Media Links Manager</h3>
+                <input type="text" id="socialFacebook" placeholder="Facebook URL" value="https://facebook.com" class="w-full border border-slate-300 rounded-xl p-2 text-xs" oninput="updateSignature()">
+                <input type="text" id="socialTwitter" placeholder="Twitter/X URL" value="https://twitter.com" class="w-full border border-slate-300 rounded-xl p-2 text-xs" oninput="updateSignature()">
+                <input type="text" id="socialLinkedin" placeholder="LinkedIn URL" value="https://linkedin.com" class="w-full border border-slate-300 rounded-xl p-2 text-xs" oninput="updateSignature()">
+                <input type="text" id="socialYoutube" placeholder="YouTube URL" value="https://youtube.com" class="w-full border border-slate-300 rounded-xl p-2 text-xs" oninput="updateSignature()">
+            </div>
+        </aside>
+
+        <!-- Right Live Preview Canvas Area -->
+        <main class="flex-1 p-10 overflow-y-auto flex justify-center items-start bg-slate-200/70">
+            <div id="signaturePreviewBox" class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl border border-slate-200 p-8 space-y-6 transition-all duration-300">
+                
+                <!-- Signature Main Layout -->
+                <div class="flex items-start space-x-6">
+                    <!-- Profile Photo Box -->
+                    <div class="flex-shrink-0">
+                        <img id="previewProfileImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150" alt="Profile" class="w-24 h-24 rounded-2xl object-cover border-2 border-slate-200 shadow-sm">
                     </div>
 
-                    <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">Brand Theme Color</label>
-                        <div class="flex items-center space-x-3">
-                            <input type="color" id="inputColor" class="w-12 h-12 bg-slate-900 border border-slate-800 rounded-xl cursor-pointer p-1" oninput="updatePreview()">
-                            <span class="text-xs text-slate-400">Click to alter core styling hex</span>
+                    <!-- Details Box -->
+                    <div class="flex-1 space-y-1">
+                        <h2 id="previewNameDisplay" class="text-xl font-black text-slate-900">John Doe</h2>
+                        <p id="previewJobDisplay" class="text-xs font-bold uppercase tracking-wider text-blue-600">Sales & Marketing Director</p>
+                        <p class="text-xs font-semibold"><a id="previewWebsiteDisplay" href="#" target="_blank" class="text-slate-500 hover:underline">www.my-company.com</a></p>
+                        
+                        <div id="previewContactText" class="pt-2 text-xs space-y-0.5 text-slate-600 font-medium">
+                            <p>T: <span id="previewPhoneDisplay">(800) 555-0199</span></p>
+                            <p>E: <span id="previewEmailDisplay">john.doe@my-company.com</span></p>
+                        </div>
+
+                        <!-- Social Icons Row -->
+                        <div class="flex items-center space-x-2 pt-3">
+                            <a id="linkFacebook" href="#" target="_blank" class="w-7 h-7 bg-blue-600 text-white rounded-lg flex items-center justify-center text-xs hover:opacity-80"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a id="linkTwitter" href="#" target="_blank" class="w-7 h-7 bg-sky-500 text-white rounded-lg flex items-center justify-center text-xs hover:opacity-80"><i class="fa-brands fa-twitter"></i></a>
+                            <a id="linkLinkedin" href="#" target="_blank" class="w-7 h-7 bg-blue-700 text-white rounded-lg flex items-center justify-center text-xs hover:opacity-80"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a id="linkYoutube" href="#" target="_blank" class="w-7 h-7 bg-red-600 text-white rounded-lg flex items-center justify-center text-xs hover:opacity-80"><i class="fa-brands fa-youtube"></i></a>
                         </div>
                     </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">Email Main Body Text</label>
-                        <textarea id="inputBody" rows="4" class="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-blue-500 focus:outline-none" oninput="updatePreview()"></textarea>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">Action Button Text</label>
-                        <input type="text" id="inputBtnText" class="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-blue-500 focus:outline-none" oninput="updatePreview()">
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">Action Button URL Target</label>
-                        <input type="text" id="inputBtnLink" class="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                    </div>
                 </div>
-            </aside>
 
-            <!-- Right Live Preview Canvas -->
-            <section class="flex-1 p-10 overflow-y-auto flex justify-center items-start bg-slate-900/60">
-                <div id="previewContainer" class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl border border-slate-800 overflow-hidden text-slate-800">
-                    <!-- Dynamic Uploaded Image Banner -->
-                    <div id="imagePreviewContainer" class="hidden bg-slate-950 p-4 text-center">
-                        <img id="uploadedImageDisplay" src="" alt="Brand Logo" class="max-h-36 mx-auto object-contain rounded-lg">
-                    </div>
-
-                    <!-- Email Banner Header -->
-                    <div id="previewHeader" class="p-8 text-white text-center transition-colors duration-300">
-                        <h2 id="previewTitle" class="text-2xl font-black tracking-tight"></h2>
-                    </div>
-
-                    <!-- Email Core Content -->
-                    <div class="p-8 space-y-6">
-                        <p id="previewBodyText" class="text-slate-600 text-base leading-relaxed"></p>
-                        <div class="text-center pt-3">
-                            <a id="previewBtn" href="#" target="_blank" class="inline-block text-white font-bold px-8 py-3.5 rounded-xl shadow-lg transition transform hover:-translate-y-0.5"></a>
-                        </div>
-                    </div>
-
-                    <!-- Email Footer Information -->
-                    <div class="bg-slate-50 px-8 py-5 border-t border-slate-100 text-center text-xs text-slate-400">
-                        &copy; 2026 Enterprise Corporation. Verified Professional Email Stream.
-                    </div>
+                <!-- Banner / GIF Section with Link Conversion -->
+                <div id="bannerContainerBox" class="pt-2">
+                    <a id="previewBannerLink" href="https://codetwo.com" target="_blank" class="block rounded-2xl overflow-hidden border border-slate-200 shadow-md group">
+                        <img id="previewBannerImg" src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600" alt="Banner" class="w-full h-36 object-cover group-hover:scale-105 transition duration-300">
+                    </a>
                 </div>
-            </section>
-        </section>
-    </main>
+
+                <!-- Disclaimer Text Section -->
+                <div class="pt-4 border-t border-slate-100">
+                    <p id="previewDisclaimerText" class="text-[10px] text-slate-400 leading-relaxed">
+                        The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party.
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+
