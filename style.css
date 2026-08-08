@@ -1,0 +1,12 @@
+/* தனித்தனி CSS ஸ்டைல்கள் */
+body {
+    font-family: sans-serif;
+}
+
+#previewContainer {
+    border: 1px solid #e5e7eb;
+}
+
+#previewHeader {
+    transition: background-color 0.3s ease;
+}
