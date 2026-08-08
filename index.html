@@ -3,47 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gmail Company Template Builder</title>
-    <!-- CSS இணைப்பு -->
+    <title>Advanced Gmail Template & Email Builder Studio</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Tailwind CSS (Framework) -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-gray-100">
+<body class="bg-slate-100 text-slate-800 antialiased">
 
-    <header class="bg-white border-b h-16 flex items-center px-6 shadow-sm">
-        <span class="text-xl font-bold text-gray-700">Workspace Mail Builder</span>
+    <!-- Top Navigation Bar -->
+    <header class="bg-white border-b border-slate-200 h-16 flex items-center justify-between px-6 shadow-sm">
+        <div class="flex items-center space-x-3">
+            <div class="bg-blue-600 text-white p-2 rounded-xl shadow-md">
+                <i class="fa-solid fa-envelope-open-text text-lg"></i>
+            </div>
+            <span class="text-xl font-extrabold tracking-tight text-slate-900">Workspace Mail Studio</span>
+        </div>
+        <div class="flex items-center space-x-3">
+            <button onclick="exportTemplate()" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-semibold transition shadow-md flex items-center space-x-2">
+                <i class="fa-solid fa-download"></i>
+                <span>Export Template</span>
+            </button>
+        </div>
     </header>
 
-    <div class="flex h-[calc(100vh-4rem)]">
-        <!-- Sidebar -->
-        <aside class="w-80 bg-white border-r p-6">
-            <h2 class="text-lg font-bold mb-4">Customizer</h2>
+    <!-- Main Workspace Layout -->
+    <div class="flex h-[calc(100vh-4rem)] overflow-hidden">
+        
+        <!-- Advanced Sidebar Customizer -->
+        <aside class="w-96 bg-white border-r border-slate-200 p-6 overflow-y-auto space-y-6">
+            <div>
+                <h2 class="text-lg font-bold text-slate-900 flex items-center space-x-2">
+                    <i class="fa-solid fa-wand-magic-sparkles text-blue-600"></i>
+                    <span>Advanced Customizer</span>
+                </h2>
+                <p class="text-xs text-slate-500 mt-1">Design your professional Gmail template live.</p>
+            </div>
+
+            <!-- 1. Media Upload (PNG, JPEG, GIF) -->
+            <div class="space-y-2 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                <label class="block text-sm font-semibold text-slate-700">
+                    <i class="fa-solid fa-image text-blue-600 mr-1"></i> Brand Logo / Banner Upload
+                </label>
+                <input type="file" id="imageUpload" accept="image/png, image/jpeg, image/gif" class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer" onchange="handleImageUpload(event)">
+                <p class="text-[11px] text-slate-400">Supports PNG, JPEG, GIF up to high resolution.</p>
+            </div>
+
+            <!-- 2. Typography & Header Section -->
             <div class="space-y-4">
                 <div>
-                    <label class="block text-sm font-medium">Header Title</label>
-                    <input type="text" id="inputTitle" value="Welcome to Our Company" class="w-full border p-2 rounded" oninput="updatePreview()">
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Header Title</label>
+                    <input type="text" id="inputTitle" value="Welcome to Our Company" class="w-full border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition" oninput="updatePreview()">
                 </div>
+
                 <div>
-                    <label class="block text-sm font-medium">Theme Color</label>
-                    <input type="color" id="inputColor" value="#1a73e8" class="w-full h-10 border rounded cursor-pointer" oninput="updatePreview()">
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Theme Color</label>
+                    <div class="flex items-center space-x-3">
+                        <input type="color" id="inputColor" value="#2563eb" class="w-12 h-12 border border-slate-300 rounded-xl cursor-pointer p-1 bg-white" oninput="updatePreview()">
+                        <span class="text-xs text-slate-500 font-medium">Click to pick custom branding color</span>
+                    </div>
                 </div>
+            </div>
+
+            <!-- 3. Content Editing Section -->
+            <div class="space-y-4">
                 <div>
-                    <label class="block text-sm font-medium">Email Content</label>
-                    <textarea id="inputBody" rows="4" class="w-full border p-2 rounded" oninput="updatePreview()">Hello User, your workspace is ready.</textarea>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Email Body Content</label>
+                    <textarea id="inputBody" rows="4" class="w-full border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition" oninput="updatePreview()">Hello User, your corporate workspace is successfully configured and active.</textarea>
                 </div>
-                <button onclick="exportTemplate()" class="w-full bg-blue-600 text-white py-2 rounded font-bold hover:bg-blue-700">Export Template</button>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Button Text</label>
+                    <input type="text" id="inputBtnText" value="Access Dashboard" class="w-full border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition" oninput="updatePreview()">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Button Link URL</label>
+                    <input type="text" id="inputBtnLink" value="https://example.com" class="w-full border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition">
+                </div>
             </div>
         </aside>
 
-        <!-- Preview -->
-        <main class="flex-1 p-10 flex justify-center items-start">
-            <div id="previewContainer" class="bg-white w-full max-w-2xl rounded-xl shadow-lg overflow-hidden">
-                <div id="previewHeader" class="bg-[#1a73e8] p-8 text-white text-center">
-                    <h1 id="previewTitle" class="text-2xl font-bold">Welcome to Our Company</h1>
+        <!-- Live Preview Canvas Area -->
+        <main class="flex-1 p-10 overflow-y-auto flex justify-center items-start bg-slate-200/60">
+            <div id="previewContainer" class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl border border-slate-200 overflow-hidden transition-all duration-300">
+                
+                <!-- Dynamic Image Preview Container -->
+                <div id="imagePreviewContainer" class="hidden bg-slate-900 p-4 text-center">
+                    <img id="uploadedImageDisplay" src="" alt="Uploaded Logo" class="max-h-32 mx-auto object-contain rounded-lg">
                 </div>
-                <div class="p-8">
-                    <p id="previewBodyText" class="text-gray-700">Hello User, your workspace is ready.</p>
+
+                <!-- Email Header -->
+                <div id="previewHeader" class="bg-blue-600 p-8 text-white text-center transition-colors duration-200">
+                    <h1 id="previewTitle" class="text-2xl font-extrabold tracking-tight">Welcome to Our Company</h1>
+                </div>
+
+                <!-- Email Body -->
+                <div class="p-8 space-y-6">
+                    <p id="previewBodyText" class="text-slate-600 text-base leading-relaxed">
+                        Hello User, your corporate workspace is successfully configured and active.
+                    </p>
+                    <div class="text-center pt-2">
+                        <a id="previewBtn" href="#" target="_blank" class="inline-block bg-blue-600 text-white font-semibold px-8 py-3.5 rounded-xl shadow-lg transition transform hover:-translate-y-0.5">
+                            Access Dashboard
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Email Footer -->
+                <div class="bg-slate-50 px-8 py-5 border-t border-slate-100 text-center text-xs text-slate-400">
+                    &copy; 2026 Workspace Corporation. All rights reserved. Secure Gmail Verified Template.
                 </div>
             </div>
         </main>
@@ -52,4 +120,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
